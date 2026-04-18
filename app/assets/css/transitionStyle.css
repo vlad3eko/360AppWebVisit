@@ -1,0 +1,46 @@
+.nested-enter-active, .nested-leave-active {
+    transition: all 0.3s ease-in-out;
+}
+
+/* delay leave of parent element */
+.nested-leave-active {
+    transition-delay: 0.25s;
+}
+
+.nested-enter-from,
+.nested-leave-to {
+    transform: translateY(30px);
+    opacity: 0;
+}
+
+/* we can also transition nested elements using nested selectors */
+.nested-enter-active .inner,
+.nested-leave-active .inner {
+    transition: all 0.3s ease-in-out;
+}
+
+/* delay enter of nested element */
+.nested-enter-active .inner {
+    transition-delay: 0.25s;
+}
+
+.nested-enter-from .inner,
+.nested-leave-to .inner {
+    transform: translateX(30px);
+    opacity: 0.001;
+}
+
+.accordion-enter-active,
+.accordion-leave-active {
+    transition: all 0.3s ease;
+}
+
+.accordion-enter-from,
+.accordion-leave-to {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.scale {
+    @apply cursor-pointer transition-all duration-300 hover:scale-[1.05]
+}

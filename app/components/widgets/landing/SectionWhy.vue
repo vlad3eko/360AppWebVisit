@@ -1,0 +1,64 @@
+<template>
+  <section-position>
+    <div class="flex justify-between items-center w-full p-10 flex-row-reverse rounded-2xl">
+      <div class="w-full p-15 ">
+        <div v-for="item in data" :key="item.id" class=" border-b  border-b-gray-600">
+          <div @click="toggle(item.id)" ref="block" class="py-3x flex gap-2 items-center cursor-pointer pb-3">
+            <IconCircle color="neon" v-if="item.show"/>
+            <IconCircle color="pink" v-else/>
+            <p class="text-3xl ">{{ item.title }}</p>
+          </div>
+          <div v-if="item.show">
+            <span>⤷ {{ item.subtitle }}</span>
+            <p class="muted" v-for="items in item.methods">— {{ items }}</p>
+            <neon-text>
+              <NuxtLink to="https://t.me/vlad3eko" target="_blank" class="cursor-pointer">
+                <p class=" pt-2 pb-2"> {{ item.link }} ></p>
+              </NuxtLink>
+            </neon-text>
+          </div>
+        </div>
+      </div>
+      <div class="min-w-[55%] h-[550px] relative">
+        <div v-for="image in data">
+          <NuxtImg v-if="image.show" :src="image.img"
+                   class="rounded-2xl p-2 w-full h-full absolute blur-3xl object-cover"/>
+          <NuxtImg v-if="image.show" :src="image.img"
+                   class="rounded-2xl p-2 w-full h-full absolute blur-xl object-cover"/>
+          <NuxtImg v-if="image.show" :src="image.img"
+                   class="rounded-2xl p-2 w-full h-full absolute blur-lg object-cover"/>
+          <NuxtImg v-if="image.show" :src="image.img"
+                   class="rounded-2xl w-full h-full absolute object-cover border border-muted-foreground/30"/>
+        </div>
+      </div>
+    </div>
+  </section-position>
+</template>
+
+<script setup>
+import SectionPosition from "~/components/widgets/landing/SectionPosition.vue";
+import NeonText from "~/components/ui/text/NeonText.vue";
+import IconCircle from "~/components/ui/icons/IconCircle.vue";
+
+const {data: fetched} = await useFetch('/api/SectionWhy')
+const data = ref([])
+
+onMounted(() => {
+  if (fetched.value) {
+    data.value = fetched.value.map(item => ({
+      ...item,
+    }))
+  }
+})
+
+const toggle = (event) => {
+  data.value.forEach(item => {
+    item.show = item.id === event ? !item.show : false
+  })
+}
+
+</script>
+
+<style scoped>
+
+</style>

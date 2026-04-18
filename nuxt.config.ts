@@ -4,14 +4,13 @@ export default defineNuxtConfig({
     compatibilityDate: "2025-07-15",
     devtools: {enabled: true},
     css: ['@/assets/css/main.css'],
-    modules: ['nuxt-swiper', '@nuxt/image', '@nuxtjs/color-mode'],
+    modules: ['nuxt-swiper', '@nuxt/image', '@nuxtjs/color-mode', '@nuxt/icon'],
 
     vite: {
         plugins: [
             tailwindcss(),
         ],
     },
-
     app: {
         head: {
             link: [
