@@ -17,7 +17,7 @@ import SectionHow from "~/components/widgets/landing/SectionHow.vue";
 import SectionWhy from "~/components/widgets/landing/SectionWhy.vue";
 import SectionPlan from "~/components/widgets/landing/SectionPlan.vue";
 import TariffList from "~/components/widgets/landing/TariffPlans/TariffList.vue";
-import TitleSections from "~/components/widgets/landing/Titles/TitleSections.vue";
+import TitleSections from "~/components/composables/TitleSections.vue";
 
 </script>
 

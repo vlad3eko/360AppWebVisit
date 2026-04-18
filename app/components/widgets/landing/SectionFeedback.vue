@@ -50,7 +50,7 @@
 <script lang="ts" setup>
 
 import Panel from "~/components/ui/panel/Panel.vue";
-import TitleSections from "~/components/widgets/landing/Titles/TitleSections.vue";
+import TitleSections from "~/components/composables/TitleSections.vue";
 
 const swiperRef = ref<any>(null)
 const image = 'img/photo_2022-12-20_20-33-41.jpg'
